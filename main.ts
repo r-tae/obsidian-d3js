@@ -12,19 +12,19 @@ import * as d3 from "d3";
 
 // Remember to rename these classes and interfaces!
 
-interface MyPluginSettings {
-	mySetting: string;
-}
+// interface ObsidianD3jsSettings {
+// 	mySetting: string;
+// }
 
-const DEFAULT_SETTINGS: MyPluginSettings = {
-	mySetting: "default",
-};
+// const DEFAULT_SETTINGS: ObsidianD3jsSettings = {
+// 	mySetting: "default",
+// };
 
-export default class MyPlugin extends Plugin {
-	settings: MyPluginSettings;
+export default class ObsidianD3js extends Plugin {
+	// settings: ObsidianD3jsSettings;
 
 	async onload() {
-		await this.loadSettings();
+		// await this.loadSettings();
 
 		this.registerMarkdownCodeBlockProcessor(
 			"d3",
@@ -43,62 +43,46 @@ export default class MyPlugin extends Plugin {
 
 	onunload() {}
 
-	async loadSettings() {
-		this.settings = Object.assign(
-			{},
-			DEFAULT_SETTINGS,
-			await this.loadData()
-		);
-	}
+	// async loadSettings() {
+	// 	this.settings = Object.assign(
+	// 		{},
+	// 		DEFAULT_SETTINGS,
+	// 		await this.loadData()
+	// 	);
+	// }
 
-	async saveSettings() {
-		await this.saveData(this.settings);
-	}
+	// async saveSettings() {
+	// 	await this.saveData(this.settings);
+	// }
 }
 
-class SampleModal extends Modal {
-	constructor(app: App) {
-		super(app);
-	}
+// class SampleSettingTab extends PluginSettingTab {
+// 	plugin: ObsidianD3js;
 
-	onOpen() {
-		const { contentEl } = this;
-		contentEl.setText("Woah!");
-	}
+// 	constructor(app: App, plugin: ObsidianD3js) {
+// 		super(app, plugin);
+// 		this.plugin = plugin;
+// 	}
 
-	onClose() {
-		const { contentEl } = this;
-		contentEl.empty();
-	}
-}
+// 	display(): void {
+// 		const { containerEl } = this;
 
-class SampleSettingTab extends PluginSettingTab {
-	plugin: MyPlugin;
+// 		containerEl.empty();
 
-	constructor(app: App, plugin: MyPlugin) {
-		super(app, plugin);
-		this.plugin = plugin;
-	}
+// 		containerEl.createEl("h2", { text: "Settings for my awesome plugin." });
 
-	display(): void {
-		const { containerEl } = this;
-
-		containerEl.empty();
-
-		containerEl.createEl("h2", { text: "Settings for my awesome plugin." });
-
-		new Setting(containerEl)
-			.setName("Setting #1")
-			.setDesc("It's a secret")
-			.addText((text) =>
-				text
-					.setPlaceholder("Enter your secret")
-					.setValue(this.plugin.settings.mySetting)
-					.onChange(async (value) => {
-						console.log("Secret: " + value);
-						this.plugin.settings.mySetting = value;
-						await this.plugin.saveSettings();
-					})
-			);
-	}
-}
+// 		new Setting(containerEl)
+// 			.setName("Setting #1")
+// 			.setDesc("It's a secret")
+// 			.addText((text) =>
+// 				text
+// 					.setPlaceholder("Enter your secret")
+// 					.setValue(this.plugin.settings.mySetting)
+// 					.onChange(async (value) => {
+// 						console.log("Secret: " + value);
+// 						this.plugin.settings.mySetting = value;
+// 						await this.plugin.saveSettings();
+// 					})
+// 			);
+// 	}
+// }

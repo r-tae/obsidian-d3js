@@ -1,4 +1,30 @@
-# Obsidian Sample Plugin
+# Obsidian D3.js
+
+## How to use
+
+Insert a codeblock with the language "d3":
+````
+```d3
+// use d3.create to create a detached element
+const div = d3.create("div");
+
+...
+
+graph(div.node())
+
+```
+````
+You have access to two special globals in the block:
+- `d3`
+- `graph()`, to add your graph into the obsidian page, you need to call `graph(<d3 element>.node());`
+
+> **Warning**
+> You can run arbitrary JS in this block, so it's not very safe at the moment.
+
+
+---
+
+### The following is just the plugin template README contents
 
 This is a sample plugin for Obsidian (https://obsidian.md).
 
