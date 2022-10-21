@@ -8,6 +8,9 @@
 > **Warning**
 > You can run arbitrary JS in a `d3` block, so it's not very safe at the moment. You should probably test it in a temporary vault.
 
+> **Note**
+> Check out `D3.js demo.md` for an example, it uses code from https://codepen.io/blackjacques/pen/ZPMpza
+
 Insert a codeblock with the language "d3":
 ````
 ```d3
