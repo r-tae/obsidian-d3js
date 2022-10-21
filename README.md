@@ -11,8 +11,9 @@ Insert a codeblock with the language "d3":
 // use d3.create to create a detached element
 const div = d3.create("div");
 
-...
+// whatever d3 code you like
 
+// then finally, add the d3 element into obsidian
 graph(div.node())
 
 ```
