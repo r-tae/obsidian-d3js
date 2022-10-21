@@ -2,6 +2,9 @@
 
 ## How to use
 
+> **Warning**
+> You can run arbitrary JS in a `d3` block, so it's not very safe at the moment. You should probably test it in a temporary vault.
+
 Insert a codeblock with the language "d3":
 ````
 ```d3
@@ -17,10 +20,6 @@ graph(div.node())
 You have access to two special globals in the block:
 - `d3`
 - `graph()`, to add your graph into the obsidian page, you need to call `graph(<d3 element>.node());`
-
-> **Warning**
-> You can run arbitrary JS in this block, so it's not very safe at the moment.
-
 
 ---
 
