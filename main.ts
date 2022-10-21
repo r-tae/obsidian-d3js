@@ -9,6 +9,7 @@ import {
 	Setting,
 } from "obsidian";
 import * as d3 from "d3";
+import _ from "lodash"
 
 // Remember to rename these classes and interfaces!
 
@@ -31,10 +32,10 @@ export default class ObsidianD3js extends Plugin {
 			async (source, el, _ctx) => {				
 				const graph = (node: HTMLElement) => el.appendChild(node)
 				function run(str: string) {
-					str = `function(d3, graph) { ${str} }`
+					str = `function(d3, graph, _) { ${str} }`
 					str = `"use strict";return (${str})`
 
-					return Function(str)()(d3, graph)
+					return Function(str)()(d3, graph, _)
 				}
 				run(source)
 			}
